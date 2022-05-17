@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<header>
+    <title>Home page</title>
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+</header>
+<body>
+  
+         
+
+
+
+    
+        
+    <div class="ui two column stackable center aligned grid" >
+    
+      <div class="ui placeholder segment">
+      
+        <%  if  (error != "" ) { %>
+          <div class="ui negative message">
+           <div class="header">
+            <%= error %>
+           </div>
+           </div>
+           <% } %>
+    
+        <form class="ui form"  method="post" action="/login" style="width: 400px;">
+          
+          <div class="field">
+            <h1 >welcome</h1>
+          </div>
+            
+          <div class="field">
+              <label>Email</label>
+              <input type="text" name="email" placeholder="Email">
+            </div>
+            <div class="field">
+              <label>Password</label>
+              <input type="password" name="password" placeholder="password">
+            </div>
+            <div class="field">
+              <a>Forgot password?</a>
+          </div>
+            <button class="ui button" type="submit" style="margin-top: 10px;margin-bottom: 10px;">Submit</button>
+          </form>  
+      
+    </div>
+  </div>
+
+</body>   

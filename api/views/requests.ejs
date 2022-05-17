@@ -1,0 +1,65 @@
+<%- include('header'); -%> 
+
+<h1 class="text-dark">Requests</h1>
+<h2 class="text-dark"> waiting</h2>   
+<div class="ui cards">
+  <% if (Requestwaiting) {for(var i=0;i<Requestwaiting.length; i++){ %>
+  <div class="card">
+    <div class="content">
+      
+      <% if (Requestwaiting[i].view === false) { %>
+      <a class="ui red empty circular label"></a>
+      <%  } else {  %>
+        <a class="ui green empty circular label"></a>
+      <% }  %>
+      
+      <div class="header">
+      <%= Requestwaiting[i].author %>
+      </div>
+      <div >
+        <label>Course :</label> <%= Requestwaiting[i].courses  %>
+      </div>
+    
+      <a href="/requests/request/<%= Requestwaiting[i]._id %>">show</a>
+    </div>
+
+
+
+    
+  </div>
+  <% } } %>
+</div>
+
+<h2 class="text-dark"> Approved</h2>   
+<div class="ui cards">
+  <% if (Requesttreat) {for(var i=0;i<Requesttreat.length; i++){ %>
+  <div class="card">
+    <div class="content">
+      
+      <% if (Requesttreat[i].view === false) { %>
+      <a class="ui red empty circular label"></a>
+      <%  } else {  %>
+        <a class="ui green empty circular label"></a>
+      <% }  %>
+      
+      <div class="header">
+      <%= Requesttreat[i].author %>
+      </div>
+      <div >
+        <label>Course :</label> <%= Requesttreat[i].courses  %>
+      </div>
+    
+      <a href="/requests/request/<%= Requesttreat[i]._id %>">show</a>
+    </div>
+
+
+
+    
+  </div>
+  <% } } %>
+</div>
+
+</p>
+</div>
+</body>
+<%- include('_footer') %>

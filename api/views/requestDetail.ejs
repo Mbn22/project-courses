@@ -1,0 +1,41 @@
+<%- include('header'); -%> 
+<h1>Request </h1>
+<form class="ui form" method="post" action="/requests/request/<%= Request._id %>">
+      
+
+<div class="header">
+  <div >
+    <a ><%= Request.author %></a>
+    <input type="text" value="<%= Request.author %>" name="email" style="display: none;" >
+  </div>
+  
+  </div>
+    <div >
+      Course : <%= Request.courses  %>
+      <input type="text" value="<%= Request.courses %>" name="courses" style="display: none;" >
+    </div>
+    <div class="">
+      Result: <%= Request.result  %>
+    </div>
+    <div class="description">
+      Description <%= Request.motivation %>
+    </div>
+
+    <div class="field">
+          <label>remark</label>
+          <textarea name="description" placeholder="remark"  style="width: 400px; height: 100px ;"  ></textarea>
+        
+        </div>
+       
+       <button class="ui button"   style="margin-top : 10px;">Approve</button>
+      
+
+  </div>
+</form>
+      
+
+  
+</p>
+</div>
+</body>
+<%- include('_footer') %>

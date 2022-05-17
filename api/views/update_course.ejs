@@ -1,0 +1,69 @@
+
+<!-- include header -->
+<%- include('header'); -%> 
+<!-- /include header -->
+
+  <!-- Main Site -->
+  <main id="site-main">
+    
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+           <div class="filter">
+               <a href="/courses"><i class="angle double left icon"></i> All Courses</a>
+           </div>
+    
+
+           <%  if  (error != "" ) { %>
+           <div class="ui negative message">
+            <div class="header">
+             <%= error %>
+            </div>
+            </div>
+            <% } %>
+           <h2 class="text-dark">Update Course</h2>        
+    <form class="ui form" method="post" action="/courses/update_course/<%= course._id %>">
+        <div class="field">
+          <label>Name</label>
+          <input type="text" name="name" value="<%= course.name %>" placeholder="Name" style="width: 200px;" >
+        </div>
+        <div class="field">
+          <label>Code</label>
+          <input type="text" name="coursecode"  value="<%= course.coursecode %>" placeholder="Code" style="width: 200px;" >
+        </div>
+        
+        <div class="field">
+            <label>Description</label>
+            <textarea name="description"     style="width: 400px; height: 100px ;"  ><%= course.description %></textarea>
+          </div>
+
+          <div class="ui form">
+            <div class="field">
+              <label>Country</label>
+              <select  class="ui dropdown" id="cohorts" name="cohort" style="width: 200px;" >
+                <option value=" <%= course.cohort %> "> <%= course.cohort %> </option>
+                <option value="pre-engineering">Pre-Engineering</option>
+                <option value="software">Software</option>
+                <option value="computer-systems">Computer Systems</option>
+                <option value="renewable-energies">Renewable Energies</option>
+               </select>
+            </div>
+          </div>
+
+
+        <button class="ui button" type="submit"  style="margin-top : 10px;">Save</button>
+      </form>
+
+
+
+    
+        </div>
+      
+
+      
+        </div>
+</main>
+<!-- /Main Site -->
+
+<!-- include footer -->
+<%- include('_footer') %>
+<!-- /include footer -->
