@@ -16,6 +16,9 @@ function NewCourse () {
   
   const {register , handleSubmit} = useForm()
   
+  
+   
+
 
   const onSubmit =data => {
     setCourses(data)
@@ -32,7 +35,7 @@ function NewCourse () {
 
 
 const test =(val)=>{
-if (val=="")
+if (val==="")
 return(<Form.Label style={{color:"red"}}>content can not be empty</Form.Label>);
 }
 

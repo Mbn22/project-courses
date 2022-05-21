@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
-import { useDispatch  } from "react-redux";
-import { deleteCourse  } from '../redux/reducerCourses';
-
+import { useDispatch, useSelector } from "react-redux";
+import { deleteCourse, GetCourses } from '../redux/reducerCourses';
+import axios from 'axios';
 function CourseLigneTab ({course}) {
 
   const dispatch =useDispatch();

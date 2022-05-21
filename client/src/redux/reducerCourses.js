@@ -3,7 +3,6 @@ import axios from 'axios';
 
 export const GetCourses = createAsyncThunk ("courses/GetCourses", async ()=>{
   const res = await axios.get( "/api/courses/")
-  console.log(res.data.users)
   return (res.data.courses)    
     
 })

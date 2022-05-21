@@ -1,16 +1,14 @@
 
 import RequestCard from './RequestCard';
-
-
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getrequests } from '../redux/reducerRequests';
+
 function   Requests (){
 
     const dispatch = useDispatch()
-     useEffect(()=>{dispatch(getrequests())},[])
+     useEffect(()=>{dispatch(getrequests())},[dispatch])
     const requests = useSelector(state=> state.requests)
     console.log(requests)
 

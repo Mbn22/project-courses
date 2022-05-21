@@ -1,8 +1,9 @@
 import Carousel from 'react-bootstrap/Carousel';
 import image from './fond.jpg'
 import { Link } from 'react-router-dom'
-function Home (){
 
+function Home (){
+    
 
 
     return(

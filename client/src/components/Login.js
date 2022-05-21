@@ -3,44 +3,46 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
-import { getlogin, identification } from '../redux/reducerLogin';
-import { useDispatch, useSelector   } from 'react-redux';
+import {  useSelector  } from 'react-redux';
 import Alert from 'react-bootstrap/Alert'
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 
 
 function Login() {
-  let navigate = useNavigate();
   const {register , handleSubmit} = useForm({defaultValues :{email: '', password: ''}});
-   
+ 
+
+  const log = useSelector(state=> state.login  )
    const [error, seterror] = useState("")
-   const dispatch=useDispatch()
   
 
+   if ((log.isloggedin === true )&&(log.loading === 'succeeded'))
+   return(<Navigate to="/" />)
+   
+     
 
-  const onSubmit =data => {
+  const onSubmit = async data => {
    
     
-    axios.post( "/api/login", data )
-    .then(res=>{ 
-       
-       if (res.data.isloggedin === true ) 
-       { dispatch(getlogin(res.data))
-       navigate("/ ")
+   const res = await axios.post( "/api/login", data )
+        
+       if (res.data.isloggedin === false ) 
+       {  seterror("Incorrect username or password")
       } 
       else
-       seterror("Incorrect username or password")
+      window.location.reload() 
         
-      })
       
-  }
+      }
  
   const test =()=>{
     if (error !== "")
     return( <Alert  variant="danger"> {error} </Alert>);
     }   
   
+
+
  
     return (
       

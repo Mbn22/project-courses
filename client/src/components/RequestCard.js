@@ -1,9 +1,19 @@
 import Card from 'react-bootstrap/Card';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
   
  
  
   function   RequestCard  ({req}){
+
+
+    const navigate = useNavigate()
+
+    const isloggedin = useSelector(state=> state.login.isloggedin )
+      if (isloggedin===false)
+      navigate("/login")
+
 
     const treated = ()=>{ if (req.treat===true)
       return (<p style={{color:"green"}}> Approvid </p>) ;
